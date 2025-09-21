@@ -44,12 +44,16 @@ services:
 volumes:
   mysql_data:
     name: mysql_data
+    driver_opts:
+      type: none
+      o: bind
+      device: ${HOME}/data/mysql
   ejudge_data:
     name: ejudge_data
-#    driver_opts:
-#      type: none
-#      o: bind
-#      device: /home/ejudge/data/judges
+    driver_opts:
+      type: none
+      o: bind
+      device: ${HOME}/data/ejudge
     
 networks:
   ejudge_net:
