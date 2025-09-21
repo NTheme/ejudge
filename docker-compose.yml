@@ -14,6 +14,8 @@ services:
       - MARIADB_PASSWORD=blabla
     volumes:
       - mysql_data:/var/lib/mysql
+    networks:
+      - ejudge_net
 
   ejudge:
     build:
@@ -22,7 +24,7 @@ services:
     image: "ejudge:latest"
     container_name: "ejudge"
     ports:
-      - "127.0.0.1:90:80"
+      - "127.0.0.1:8001:80"
     environment:
       - EJUDGE_MYSQL_USER=ejudge
       - EJUDGE_MYSQL_PASSWORD=blabla
@@ -32,7 +34,19 @@ services:
       - ejudge_data:/home/judges
     depends_on:
       - mariadb
+    networks:
+      - ejudge_net
 
 volumes:
   mysql_data:
+    name: mysql_data
   ejudge_data:
+    name: ejudge_data
+#    driver_opts:
+#      type: none
+#      o: bind
+#      device: /home/ejudge/data/judges
+    
+networks:
+  ejudge_net:
+    name: ejudge_net
