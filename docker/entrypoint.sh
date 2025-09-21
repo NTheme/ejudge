@@ -102,5 +102,5 @@ ulimit -n 1024
 
 PATH=/opt/ejudge/bin:$PATH
 /opt/ejudge/bin/ejudge-control -u ejudge -g ejudge start
-
+cp -r /opt/ejudge/bin /home/judges/bin
 /usr/sbin/httpd -DFOREGROUND
