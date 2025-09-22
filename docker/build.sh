@@ -29,3 +29,5 @@ mv ejudge-container-fedora-36.tbz /opt/ejudge/share/ejudge
 rm /opt/ejudge/share/ejudge/ejudge-container-fedora-36.tbz
 cp -p /etc/passwd /opt/ejudge/share/ejudge/container/etc
 cp -p /etc/group /opt/ejudge/share/ejudge/container/etc
+
+dnf install java-17-openjdk-devel
